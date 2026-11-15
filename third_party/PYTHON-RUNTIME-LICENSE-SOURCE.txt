@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/astral-sh/python-build-standalone/20260901/python-licenses.rst

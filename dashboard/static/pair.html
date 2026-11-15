@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>配对 · Kindle 看板</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#202124;font:16px -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}main{max-width:400px;margin:8vh auto;padding:24px}h1{font-size:24px;margin:0 0 12px;font-weight:600}label{display:block;margin:18px 0 8px;font-size:14px}input{width:100%;padding:12px;border:1px solid #aaa;border-radius:5px;font:17px sans-serif;color:#111;background:#fff}#code{font:20px monospace;text-transform:uppercase;letter-spacing:2px}button{margin-top:20px;width:100%;padding:13px;background:#242424;color:white;border:0;border-radius:5px;font:16px sans-serif}button:disabled{opacity:.6}p{font-size:13px;line-height:1.5;color:#666}.security{margin:16px 0 0;font-size:12px}.error{color:#9c2222}input:focus,button:focus{outline:2px solid #555;outline-offset:2px}
+</style></head><body><main><h1>Kindle 看板</h1><p>配对码：Mac 应用 → 访问管理</p>
+<!--MESSAGE-->
+<form method="post" action="/access/pair"><input type="hidden" name="next" value="<!--NEXT-->">
+<label for="name">设备名称</label><input id="name" name="name" maxlength="40" placeholder="我的 Kindle" required autocomplete="off">
+<label for="code">配对码</label><input id="code" name="code" maxlength="32" required autocomplete="off" autocapitalize="characters" spellcheck="false">
+<button type="submit">配对</button></form><p class="security">HTTP 未加密 · 仅限可信网络</p></main>
+<script>(function(){
+    var form=document.querySelector('form'),button=form.querySelector('button'),submitting=false;
+    function reset(){submitting=false;button.disabled=false;button.textContent='配对';}
+    form.onsubmit=function(){
+        if(submitting) return false;
+        submitting=true;button.disabled=true;button.textContent='配对中…';
+        window.setTimeout(reset,15000);
+    };
+    if(window.addEventListener) window.addEventListener('pageshow',reset,false);
+})();</script></body></html>
